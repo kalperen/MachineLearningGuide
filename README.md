@@ -1,6 +1,13 @@
 # MachineLearningGuide
 
+
+## Table of Contents
+- [Introduction] (#introduction)
+- [Linear Regression] (#linear-regression)
+- [Multivariate Linear Regression] (#multivariate-linear-regression)
+
 ## Introduction
+This repository contains my notes on the concepts of Machine Learning.
 
 ### What is Machine Learning:
 
@@ -41,11 +48,11 @@ A pair ***(x , y)***: is a training example, and the dataset that we’ll be usi
 
 With each step gradient descent adjusts parameters to find the best combination of weights and bias to minimize loss.
 
-### Linear Regression:
+## Linear Regression:
 
 Linear Regression is one of the simplest ML models. We have a hypothesis set with only two parameters that we trying to tune in order to minimize the cost function. Informally this means that given an input x and an output y we want our model's prediction to be as close to y as possible (for multiple pairs x and y). To achieve this we use gradient descent algorithm defined below.
 
 ![Alt text](/images/models/linearRegression/linearRegression.png?raw=true "Linear Regression")
 ![Alt text](/images/models/linearRegression/gradientDescent.png?raw=true "Linear Regression")
 
-### Multivariate Linear Regression
+## Multivariate Linear Regression:
