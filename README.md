@@ -2,9 +2,9 @@
 
 
 ## Table of Contents
-- [Introduction] (#introduction)
-- [Linear Regression] (#linear-regression)
-- [Multivariate Linear Regression] (#multivariate-linear-regression)
+- [Introduction](#introduction)
+- [Linear Regression](#linear-regression)
+- [Multivariate Linear Regression](#multivariate-linear-regression)
 
 ## Introduction
 This repository contains my notes on the concepts of Machine Learning.
