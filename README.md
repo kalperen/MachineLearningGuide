@@ -53,6 +53,7 @@ With each step gradient descent adjusts parameters to find the best combination 
 Linear Regression is one of the simplest ML models. We have a hypothesis set with only two parameters that we trying to tune in order to minimize the cost function. Informally this means that given an input x and an output y we want our model's prediction to be as close to y as possible (for multiple pairs x and y). To achieve this we use gradient descent algorithm defined below.
 
 ![Alt text](/images/models/linearRegression/linearRegression.png?raw=true "Linear Regression")
+
 ![Alt text](/images/models/linearRegression/gradientDescent.png?raw=true "Linear Regression")
 
 Usually when learning about Linear Regression we consider the example of trying to predict the price of a home given some information about it.
@@ -62,6 +63,7 @@ Usually when learning about Linear Regression we consider the example of trying 
 Multivariate Linear Regression is the same as regular Linear Regression but with more parameters. Considering the case of trying to predict the price of a house, while Linear Regression may only have a single parameter (size of home), multivariate Linear Regression can take into account multiple parameters (size of home, number of rooms, location). To achieve this we just have to slightly modify the Hypothesis and Gradient Descent to take into account multiple parameters.
 
 ![Alt text](/images/models/linearRegression/MLinRegHyp.png?raw=true "Multivariate Linear Regression")
+
 ![Alt text](/images/models/linearRegression/MLinRegGrad.png?raw=true "Multivariate Linear Regression")
 
 Having multiple parameters can create problems for gradient descent and lead to slow convergence. One common problem is having parameters that have widely different ranges. For example size of house can be between 0 and 1000 while number of rooms is between 0 and 5 in a certain data set. To solve this problem and allow gradient descent to converge faster we use two techniques called feature scaling and mean normalization.
