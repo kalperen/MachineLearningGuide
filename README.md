@@ -9,6 +9,11 @@
 ## Introduction
 This repository contains my notes on the concepts of Machine Learning.
 
+***Credits to***:
+
+https://www.coursera.org/learn/machine-learning/
+https://developers.google.com/machine-learning/crash-course/
+
 ### What is Machine Learning:
 
 (Tom Mitchell) Well-Posed Learning Problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.
@@ -97,3 +102,94 @@ It's possible for the X'X in the formula to be noninvertible due to redundant or
 There is no need to do feature scaling with the normal equation.
 
 ![Alt text](/images/graphs/GDvsNE.png?raw=true "Gradient Descent vs Normal Equation")
+
+## Logistic Regression
+
+***Classification***:
+
+Predicting for classification is similar to doing regression except that the values we now want take on only a small number of discrete values. The simplest form of classification is binary classification in which y can take only two values, 0 and 1. An example of binary classification is to try to predict whether an email is spam or not.
+
+***Hypothesis***:
+
+Since we are now predicting for a class it doesn't make sense for our hypothesis function to take values bigger than 1. We will therefore fix the form of our hypotheses by plugging θ'x into the logistic function and using the sigmoid function.
+
+![Alt text](/images/models/logisticRegression/hypothesis.png?raw=true "Hypothesis")
+
+![Alt text](/images/graphs/sigmoid.png?raw=true "Sigmoid")
+The sigmoid function g(z) maps any real number to the (0, 1) interval.
+
+The hypothesis function h(x) will give us the probability that our output is 1.
+
+![Alt text](/images/models/logisticRegression/hypoProba.png?raw=true "Hypothesis")
+
+***Decision Boundary***:
+
+In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function using a decision Boundary. The decision boundary is the line that separates the area where y = 0 and where y = 1. It is created by our hypothesis function.
+
+***Cost Function***:
+
+For logistic regression we use log loss as the cost function defined as follows:
+
+![Alt text](/images/models/logisticRegression/costFunction.png?raw=true "Cost Function")
+
+![Alt text](/images/models/logisticRegression/costFunction2.png?raw=true "Cost Function Simplified")
+
+***Multiclass Classification (One vs all)***:
+
+Instead of having y = {0, 1} we now have y = {0,1,...n}. Because we now have multiple classes we divide our problem into n + 1 binary classification problems. In each case we predict the probability that 'y' is a member of one of our classes. Informally, we are choosing one class and then lumping all the others into a single second class. After doing this repeatedly by applying binary logistic regression to each case we use the hypothesis that returned the highest value as our prediction.
+
+![Alt text](/images/models/logisticRegression/multiClass.png?raw=true "Multiclass classification")
+
+## Regularization and solving the problem of overfitting
+
+Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. At the other extreme, overfitting, or high variance, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.
+
+There are two main options to address the issue of overfitting:
+
+1) Reduce the number of features:
+
+- Manually select which features to keep.
+- Use a model selection algorithm (studied later in the course).
+
+2) Regularization
+- Keep all the features, but reduce the magnitude of parameters θj.
+- Regularization works well when we have a lot of slightly useful features.
+
+***L2 regularization and Lambda***:
+Our training optimization algorithm is now a function of two terms: the loss term, which measures how well the model fits the data, and the regularization term, which measures model complexity.
+
+We can quantify complexity using the L2 regularization formula, which defines the regularization term as the sum of the squares of all the feature weights:
+
+![Alt text](/images/formulas/l2reg.png?raw=true "L2 Regularization")
+
+In this formula, weights close to zero have little effect on model complexity, while outlier weights can have a huge impact.
+
+If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost. To do this model developers tune the overall impact of the regularization term by multiplying its value by a scalar known as lambda (also called the regularization rate). That is, model developers aim to do the following: minimize(Loss(Data|Model) + λcomplexity(Model)).
+
+Performing L2 regularization has the following effect on a model:
+
+- Encourages weight values toward 0 (but not exactly 0)
+- Encourages the mean of the weights toward 0, with a normal (bell-shaped or Gaussian) distribution.
+
+Increasing the lambda value strengthens the regularization effect.
+
+When choosing a lambda value, the goal is to strike the right balance between simplicity and training-data fit:
+
+- If your lambda value is too high, your model will be simple, but you run the risk of underfitting your data. Your model won't learn enough about the training data to make useful predictions.
+- If your lambda value is too low, your model will be more complex, and you run the risk of overfitting your data. Your model will learn too much about the particularities of the training data, and won't be able to generalize to new data.
+
+The ideal value of lambda produces a model that generalizes well to new, previously unseen data. Unfortunately, that ideal value of lambda is data-dependent, so you'll need to do some tuning.
+
+***Regularized Linear Regression***:
+To regularize linear regression we modify gradient descent to separate the bias and add the regularization term to the rest of the parameters as follows:
+
+![Alt text](/images/models/linearRegression/regularized.png?raw=true "Regularized Linear Regression")
+
+For the normal equation the transformation is as follows:
+![Alt text](/images/models/linearRegression/regularizedNorm.png?raw=true "Regularized Normal Equation")
+
+***Regularized Logistic Regression***:
+
+To regularize logistic regression we modify the cost function as follows:
+
+![Alt text](/images/models/logisticRegression/regularized.png?raw=true "Regularized Logistic Regression")
