@@ -156,6 +156,7 @@ There are two main options to address the issue of overfitting:
 - Regularization works well when we have a lot of slightly useful features.
 
 ***L2 regularization and Lambda***:
+
 Our training optimization algorithm is now a function of two terms: the loss term, which measures how well the model fits the data, and the regularization term, which measures model complexity.
 
 We can quantify complexity using the L2 regularization formula, which defines the regularization term as the sum of the squares of all the feature weights:
@@ -181,11 +182,13 @@ When choosing a lambda value, the goal is to strike the right balance between si
 The ideal value of lambda produces a model that generalizes well to new, previously unseen data. Unfortunately, that ideal value of lambda is data-dependent, so you'll need to do some tuning.
 
 ***Regularized Linear Regression***:
+
 To regularize linear regression we modify gradient descent to separate the bias and add the regularization term to the rest of the parameters as follows:
 
 ![Alt text](/images/models/linearRegression/regularized.png?raw=true "Regularized Linear Regression")
 
 For the normal equation the transformation is as follows:
+
 ![Alt text](/images/models/linearRegression/regularizedNorm.png?raw=true "Regularized Normal Equation")
 
 ***Regularized Logistic Regression***:
