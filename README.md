@@ -12,6 +12,7 @@ This repository contains my notes on the concepts of Machine Learning.
 ***Credits to***:
 
 https://www.coursera.org/learn/machine-learning/
+
 https://developers.google.com/machine-learning/crash-course/
 
 ### What is Machine Learning:
@@ -196,3 +197,53 @@ For the normal equation the transformation is as follows:
 To regularize logistic regression we modify the cost function as follows:
 
 ![Alt text](/images/models/logisticRegression/regularized.png?raw=true "Regularized Logistic Regression")
+
+## Neural Networks
+
+***Simplified Explanation***
+
+A Neural Network is a machine learning model commonly used to solve nonlinear problems. A Neural Network is composed of:
+- A set of nodes, analogous to neurons, organized in layers.
+- A set of weights representing the connections between each neural network layer and the layer beneath it. The layer beneath may be another neural network layer, or some other kind of layer.
+- A set of biases, one for each node.
+- An activation function that transforms the output of each node in a layer. Different layers may have different activation functions.
+
+![Alt text](/images/models/neuralNetworks/graph.png?raw=true "Simple Neural Network")
+
+Each blue circle represents an input feature, and the green circle represents the weighted sum of the inputs.
+Each yellow node in the hidden layer is a weighted sum of the blue input node values. The output is a weighted sum of the yellow nodes.
+The nodes in pink represent the hidden layer used to introduce nonlinearity by piping each hidden layer node thorugh a nonlinear function.
+With an activation function, adding layers has more impact. Stacking nonlinearities on nonlinearities lets us model very complicated relationships between the inputs and the predicted outputs. In brief, each layer is effectively learning a more complex, higher-level function over the raw inputs.
+
+Common activation functions are Sigmoid and Rectified linear unit.
+Sigmoid: F(x) = 1/(1 + e^-x)
+ReLu: F(x) = max(0, x)
+
+***Formal Definition***
+At a very simple level, neurons are basically computational units that take inputs (dendrites) as electrical inputs (called "spikes") that are channeled to outputs (axons). In our model, our dendrites are like the input features x1⋯xn, and the output is the result of our hypothesis function. In this model our x0 input node is sometimes called the "bias unit." It is always equal to 1. In neural networks, we use the same logistic function as in classification, 1/(1+e^(-θ'x')), yet we sometimes call it a sigmoid (logistic) activation function. In this situation, our "theta" parameters are sometimes called "weights".
+
+Our input nodes (layer 1), also known as the "input layer", go into another node (layer 2), which finally outputs the hypothesis function, known as the "output layer".
+
+We can have intermediate layers of nodes between the input and output layers called the "hidden layers."
+
+![Alt text](/images/models/neuralNetworks/definitions.png?raw=true "Definitions")
+
+![Alt text](/images/models/neuralNetworks/representation.png?raw=true "Representation")
+
+We compute our activation nodes by using a 3×4 matrix of parameters. We apply each row of the parameters to our inputs to obtain the value for one activation node. Our hypothesis output is the logistic function applied to the sum of the values of our activation nodes, which have been multiplied by yet another parameter matrix Θ(2) containing the weights for our second layer of nodes.
+
+![Alt text](/images/models/neuralNetworks/activation.png?raw=true "Activaton")
+
+Each layer gets its own matrix of weights, Θ(j).
+
+The dimensions of these matrices of weights is determined as follows:
+
+If network has sj units in layer j and sj+1 units in layer j+1, then Θ(j) will be of dimension sj+1×(sj+1).
+
+To simplify the above definition of the activation funtions we define a new variable z that encompasses the parameters inside our g function.
+
+We can now define our hypothesis function as follows:
+
+![Alt text](/images/models/neuralNetworks/hypothesis.png?raw=true "Hypothesis")
+
+To classify data into multiple classes, we let our hypothesis function return a vector of values.
