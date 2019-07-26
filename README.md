@@ -25,41 +25,53 @@ There are tons of resources out there on how to learn ML. This is the path I too
 ***Math***
 
 For a general review you can follow this course:
+
 https://www.youtube.com/playlist?list=PL7y-1rk2cCsAqRtWoZ95z-GMcecVG5mzA
 
 Linear Algebra:
 
 For a brief conceptual introduction follow through this series:
+
 https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
 
 Then follow through this course for more in depth teachings:
+
 https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/
 
 Calculus:
 
 For a brief conceptual introduction follow through this series:
+
 https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr
 
 Then follow through these courses for more in depth teachings:
+
 https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/video-lectures/
+
 https://ocw.mit.edu/courses/mathematics/18-02-multivariable-calculus-fall-2007/video-lectures/
 
 Probability and Statistics:
+
 http://web.stanford.edu/class/archive/cs/cs109/cs109.1166//handouts/overview.html
 
 If you're more into text books then I recommend this:
+
 https://mml-book.github.io/
 
 ***ML***
 
 For a lightweight introduction to ML follow this google tutorial:
+
 https://developers.google.com/machine-learning/crash-course/
 
 For a more formal introduction you can take the most famous ML course out there:
+
 https://www.coursera.org/learn/machine-learning/
 
 If you want to continue studying further reading these is a good first step:
+
 https://www.deeplearningbook.org/
+
 http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf
 
 
