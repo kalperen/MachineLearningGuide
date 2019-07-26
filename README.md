@@ -1,19 +1,67 @@
 # MachineLearningGuide
 
+***THIS IS A WORK IN PROGRESS***
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Linear Regression](#linear-regression)
-- [Multivariate Linear Regression](#multivariate-linear-regression)
-
-## Introduction
-This repository contains my notes on the concepts of Machine Learning.
+This repository contains my notes on the concepts of Machine Learning. I use it to keep track of my learnings but it can also be applied as a general guide on how to get started with Machine Learning. Be careful as the depth of notes is not consistent throughout the document, I get into more detail wherever I deem necessary and only present the general ideas in other parts. Feel free to contribute with pull requests!
 
 ***Credits to***:
 
 https://www.coursera.org/learn/machine-learning/
 
 https://developers.google.com/machine-learning/crash-course/
+
+## Table of Contents
+- [Learning Machine Learning](#learning-machine-learning)
+- [Linear Regression](#linear-regression)
+- [Multivariate Linear Regression](#multivariate-linear-regression)
+- [Logistic Regression](#logistic-regression)
+- [Regularization and Overfitting](#regularization-and-overfitting)
+- [Neural Networks](#neural-networks)
+
+### Learning Machine Learning
+
+There are tons of resources out there on how to learn ML. This is the path I took:
+
+***Math***
+
+For a general review you can follow this course:
+https://www.youtube.com/playlist?list=PL7y-1rk2cCsAqRtWoZ95z-GMcecVG5mzA
+
+Linear Algebra:
+
+For a brief conceptual introduction follow through this series:
+https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
+
+Then follow through this course for more in depth teachings:
+https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/
+
+Calculus:
+
+For a brief conceptual introduction follow through this series:
+https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr
+
+Then follow through these courses for more in depth teachings:
+https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/video-lectures/
+https://ocw.mit.edu/courses/mathematics/18-02-multivariable-calculus-fall-2007/video-lectures/
+
+Probability and Statistics:
+http://web.stanford.edu/class/archive/cs/cs109/cs109.1166//handouts/overview.html
+
+If you're more into text books then I recommend this:
+https://mml-book.github.io/
+
+***ML***
+
+For a lightweight introduction to ML follow this google tutorial:
+https://developers.google.com/machine-learning/crash-course/
+
+For a more formal introduction you can take the most famous ML course out there:
+https://www.coursera.org/learn/machine-learning/
+
+If you want to continue studying further reading these is a good first step:
+https://www.deeplearningbook.org/
+http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf
+
 
 ### What is Machine Learning:
 
@@ -141,7 +189,7 @@ Instead of having y = {0, 1} we now have y = {0,1,...n}. Because we now have mul
 
 ![Alt text](/images/models/logisticRegression/multiClass.png?raw=true "Multiclass classification")
 
-## Regularization and solving the problem of overfitting
+## Regularization and Overfitting
 
 Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. At the other extreme, overfitting, or high variance, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.
 
