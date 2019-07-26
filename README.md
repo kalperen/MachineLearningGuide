@@ -1,4 +1,4 @@
-# MachineLearningGuide
+# Machine Learning Guide
 
 ***THIS IS A WORK IN PROGRESS***
 
