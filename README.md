@@ -327,4 +327,46 @@ Regression and Classification.
 
 Clustering, Visualization, Dimensionality Reduction, and Association Rule Learning.
 
-5.
+***5. What is an online learning system?***
+
+An online learning systems learns incrementally as opposed to a batch-learning system. It can adapt rapidly to both changing data and autonomous systems and can be trained on very large quantities of data.
+
+***6. What is out-of-core learning?***
+
+Out-of-core learning systems are used to handle vast quantities of data that cannot fit in a computer's main memory. They work by chopping the data into mini-batches and using online learning techniques to learn from these mini-batches.
+
+***7. What type of learning algo relies on a similarity measure to make predictions?***
+
+Instance-based learning systems learn the data by heart then when given a new instance use a similarity measure to find the most similar learned instances to make predictions.
+
+***8. What is the difference between a model parameter and a learning algorithm's hyperparameter?***\
+
+A model has one or more model parameters that determine what it will predict given a new instance (slope of a linear model). A learning algorithm tries to find optimal values for these parameters such that the model generalizes well to new instances. A hyperparameter is a parameter of the learning algorithm itself, not of the model (the amount of regularization to apply)./
+
+***9.What do model-based learning algorithms search for? What is the most common strategy they use to succeed? How do they make predictions?***
+
+Model-based learning algorithms search for an optimal value for the model parameters such that the model will generalize well to new instances. We usually train such systems by minimizing a cost function that measures how bad the system is at making predictions on the training data, plus a penalty for model complexity if the model is regularized. To make predictions we feed the new instance's features into the model's prediction function, using the parameter values found by the learning algorithm.
+
+***10. What are the main challenges in ML?***
+
+Lack of data, poor data quality, non-representative data, uninformative features, excessively simple models that underfit the training data, and excessively complex models that overfit the data.
+
+***11. If you model performs great on training data but generalizes poorly to new instances, what is happening? What are possible solutions?***
+
+The model is likely overfitting the training data. Possible solutions are getting more data, simplifying the model (selecting simpler algorithm, reducing the number of parameters or features used, or regularizing the model), or reducing the noise in the data.
+
+***12. What is a test set and when is it used?***
+
+Test sets are used to estimate the generalization error that a model will make on new instances, before the model is launched in production.
+
+***13. What is a validation set and when is it used?***
+
+A validation set is used to compare models, it makes it possible to select the best model and tune the hyperparameters.
+
+***14. What happens if you tune hyperparameters using the test set?***
+
+You risk overfitting the test set, and the generalization error you measure will be optimistic (launch a model that performs worse than you expect it to).
+
+***15. What is cross-validation adn why would you prefer it to a validation set?***
+
+Cross-validation is a technique that makes it possible to compare models (for model selection and hyperparameter tuning) without the need for a separate validation set. This saves training data.
