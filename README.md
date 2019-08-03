@@ -311,20 +311,20 @@ To classify data into multiple classes, we let our hypothesis function return a 
 
 ## Simple Q&A
 
-1. Define Machine learning
+***1. Define Machine learning***
 
 ML is building systems that can learn from data by getting better at some task given some performance measure.
 
-2. In what type of problems does ML shine?
+***2. In what type of problems does ML shine?***
 
 ML is good for complex problems for which we have no algorithmic solution, to replace long lists of hand-tuned rules, to build systems that adapt to fluctuating environments, and to help humans learn from data.
 
-3. What are the most common supervised learning tasks?
+***3. What are the most common supervised learning tasks?***
 
 Regression and Classification.
 
-4. What are the most common unsupervised learning tasks?
+***4. What are the most common unsupervised learning tasks?***
 
 Clustering, Visualization, Dimensionality Reduction, and Association Rule Learning.
 
-5. 
+5.
