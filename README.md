@@ -10,6 +10,8 @@ https://www.coursera.org/learn/machine-learning/
 
 https://developers.google.com/machine-learning/crash-course/
 
+https://github.com/ageron/handson-ml (notebooks are mostly based on exercises completed from the Hands-On Machine Learning With Scikit-Learn & TensorFlow book)
+
 ## Table of Contents
 - [Learning Machine Learning](#learning-machine-learning)
 - [Linear Regression](#linear-regression)
