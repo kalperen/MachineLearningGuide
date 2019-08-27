@@ -372,3 +372,53 @@ You risk overfitting the test set, and the generalization error you measure will
 ***15. What is cross-validation adn why would you prefer it to a validation set?***
 
 Cross-validation is a technique that makes it possible to compare models (for model selection and hyperparameter tuning) without the need for a separate validation set. This saves training data.
+
+***16. What Linear Regression training algorithm can you use if you have a training set with millions of features?***
+
+If you have a training set with millions of features you can use Stochastic Gradient Descent or Mini-batch Gradient Descent, and perhaps Batch Gradient Descent if the training set fits in memory. But you cannot use the Normal Equation because the computational complexity grows quickly (more than quadratically) with the number of features.
+
+***17. Suppose the features in you training set have  very different scales. What algos might suffer from this, and how? What can you do about it?***
+
+If the features in your training set have very different scales, the cost function will have the shape of an elongated bowl, so the Gradient Descent algorithms will take a long time to converge. To solve this you should scale the data before training the model. Note that the Normal Equation will work just fine without scaling.
+
+***18. an Gradient Descent get stuck in a local minimum when training a Logistic Regression model?***
+
+Gradient Descent cannot get stuck in a local minimum when training a Logistic Regression model because the cost function is convex
+
+***19. Do all Gradient Descent algorithms lead to the same model provided you let them run long enough?***
+
+If the optimization problem is convex (such as Linear Regression or Logistic Regression), and assuming the learning rate is not too high, then all Gradient Descent algorithms will approach the global optimum and end up producing fairly similar models. However, unless you gradually reduce the learning rate, Stochastic GD and Mini-batch GD will never truly converge; instead, they will keep jumping back and forth around the global optimum. This means that even if you let them run for a very long time, these Gradient Descent algorithms will produce slightly different models.
+
+***20. Suppose you use Batch Gradient Descent and you plot the validation error at every epoch. If you notice that the validation error consistently goes up, what is likely going on? How can you fix this?***
+
+If the validation error consistently goes up after every epoch, then one possibility is that the learning rate is too high and the algorithm is diverging. If the training error also goes up, then this is clearly the problem and you should reduce the learning rate. However, if the training error is not going up, then your model is overfitting the training set and you should stop training.
+
+***21. Is it a good idea to stop Mini-batch Gradient Descent immediately when the validation error goes up?***
+
+Due to their random nature, neither Stochastic Gradient Descent nor Mini-batch Gradient Descent is guaranteed to make progress at every single training itera‐ tion. So if you immediately stop training when the validation error goes up, you may stop much too early, before the optimum is reached. A better option is to save the model at regular intervals, and when it has not improved for a long time (meaning it will probably never beat the record), you can revert to the best saved model.
+
+***22. Which Gradient Descent algo will reach the vicinity of the optimal solution the fastest? Which will actually converge? How can you make others converge as well?***
+
+Stochastic Gradient Descent has the fastest training iteration since it considers only one training instance at a time, so it is generally the first to reach the vicinity of the global optimum (or Mini-batch GD with a very small mini-batch size). However, only Batch Gradient Descent will actually converge, given enough training time. As mentioned, Stochastic GD and Mini-batch GD will bounce around the optimum, unless you gradually reduce the learning rate.
+
+***23. Suppose you are using Polinomial Regression. You plot the learning curves and you notice that there is a large gap between the training error and the validation error. What is happening? What are three ways to solve this?***
+
+If the validation error is much higher than the training error, this is likely because your model is overfitting the training set. One way to try to fix this is to reduce the polynomial degree: a model with fewer degrees of freedom is less likely to overfit. Another thing you can try is to regularize the model—for example, by adding an ℓ2  penalty (Ridge) or an ℓ1  penalty (Lasso) to the cost function. This will also reduce the degrees of freedom of the model. Lastly, you can try to increase the size of the training set
+
+***24. Suppose you are using ggRidge Regression and you notice that the training error and the validation error are almost equal and fairly higgh. Would you say that the model suffers from high bias or high variance? Should you increase the regularization hyperparameter alpha or reduce it?***
+
+If both the training error and the validation error are almost equal and fairly high, the model is likely underfitting the training set, which means it has a high bias. You should try reducing the regularization hyperparameter α.
+
+***25. Why would you want to use: Ridge Regression instead of plain Linear Reggression? Lasso instead of Ridge Regression? Elastic Net instead of Lasso?***
+
+Let’s see:
+
+- A model with some regularization typically performs better than a model without any regularization, so you should generally prefer Ridge Regression over plain Linear Regression.
+
+- Lasso Regression uses an ℓ1  penalty, which tends to push the weights down to exactly zero. This leads to sparse models, where all weights are zero except for the most important weights. This is a way to perform feature selection auto‐ matically, which is good if you suspect that only a few features actually matter. When you are not sure, you should prefer Ridge Regression.
+
+- Elastic Net is generally preferred over Lasso since Lasso may behave erratically in some cases (when several features are strongly correlated or when there are more features than training instances). However, it does add an extra hyper‐ parameter to tune. If you just want Lasso without the erratic behavior, you can just use Elastic Net with an l1_ratio close to 1.
+
+***26. Suppose you want to classify pictures as outdoor/indoor and daytime/nighttime. Should you implement two Logistic Regression classifiers or one Softmax Regression classifier?***
+
+If you want to classify pictures as outdoor/indoor and daytime/nighttime, since these are not exclusive classes (i.e., all four combinations are possible) you should train two Logistic Regression classifiers.
